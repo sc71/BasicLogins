@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Basic Logins</string>
+    <string name="create_account"><u>Create an Account</u></string>
+</resources>
