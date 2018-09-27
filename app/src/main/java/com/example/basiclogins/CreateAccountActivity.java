@@ -33,6 +33,9 @@ public class CreateAccountActivity extends AppCompatActivity {
                         editTextPass.getText().toString().equals("")){
                     Toast.makeText(CreateAccountActivity.this, "fields are empty", Toast.LENGTH_SHORT).show();
                 }
+                if(!(editTextPass.getText().toString().equals(editTextConfirmPass.getText().toString()))){
+                    Toast.makeText(CreateAccountActivity.this, "passwords do not match", Toast.LENGTH_SHORT).show();
+                }
                 else {
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra(USERNAME_CONST, editTextUser.getText().toString());
