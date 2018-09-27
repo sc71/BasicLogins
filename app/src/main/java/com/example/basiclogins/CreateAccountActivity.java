@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import static com.example.basiclogins.LoginActivity.INTENT_CODE;
 import static com.example.basiclogins.LoginActivity.PASSWORD_CONST;
@@ -27,11 +28,18 @@ public class CreateAccountActivity extends AppCompatActivity {
         buttonCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent returnIntent = new Intent();
-                returnIntent.putExtra(USERNAME_CONST, editTextUser.getText().toString());
-                returnIntent.putExtra(PASSWORD_CONST, editTextPass.getText().toString());
-                setResult(Activity.RESULT_OK,returnIntent);
-                finish();
+                if(editTextConfirmPass.getText().toString().equals("") || editTextEmail.getText().toString().equals("") ||
+                        editTextName.getText().toString().equals("") || editTextUser.getText().toString().equals("") ||
+                        editTextPass.getText().toString().equals("")){
+                    Toast.makeText(CreateAccountActivity.this, "fields are empty", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra(USERNAME_CONST, editTextUser.getText().toString());
+                    returnIntent.putExtra(PASSWORD_CONST, editTextPass.getText().toString());
+                    setResult(Activity.RESULT_OK, returnIntent);
+                    finish();
+                }
             }
         });
     }
