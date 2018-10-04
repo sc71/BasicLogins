@@ -42,7 +42,12 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, "placeholer", Toast.LENGTH_SHORT).show();
+                if(editTextUsername.getText().toString().equals("")){
+                    Toast.makeText(LoginActivity.this, "enter a username", Toast.LENGTH_SHORT).show();
+                }
+                else if(editTextPassword.getText().toString().equals("")){
+                    Toast.makeText(LoginActivity.this, "enter a password", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
